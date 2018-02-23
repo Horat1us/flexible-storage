@@ -1,5 +1,5 @@
 {
-  "name": "local-cache",
+  "name": "flexible-storage",
   "version": "1.0.0",
   "description": "Cache on frontend using LocalStorage",
   "main": "src/index.ts",
