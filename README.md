@@ -1,7 +1,10 @@
 # Local Cache
 Module for front-end cache storage using LocalStorage (or any [another Storage](https://developer.mozilla.org/ru/docs/Web/API/Storage)).  
-It allows store any value as JSON in storage and set expire date for cache key.
-
+Main features:
+- allows choose between localStorage and sessionStorage
+- define expiration date (using Moment or native Date instance)
+- define storage key prefix or filter
+- store any object as JSON
 
 ## Installation
 Using NPM:
