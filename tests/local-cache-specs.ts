@@ -19,6 +19,9 @@ describe("FlexibleStorage", () => {
     describe("default buildKey()", () => {
         const cacheWithDefaultBuildKey = new FlexibleStorage(storage, "prefix_");
         expect(cacheWithDefaultBuildKey.buildKey("key")).to.be.equal("prefix_key");
+
+        const cacheWithNoKeyPrefix = new FlexibleStorage(storage);
+        expect(cacheWithNoKeyPrefix.buildKey("key")).to.equal("key");
     });
 
     describe("exists()", () => {

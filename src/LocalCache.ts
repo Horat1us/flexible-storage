@@ -1,10 +1,10 @@
-import { Moment } from "moment";
+import {Moment} from "moment";
 
 export class FlexibleStorage {
     public buildKey: (key: string) => string;
     protected storage: Storage;
 
-    constructor(storage: Storage, keyPrefix: string | ((key: string) => string)) {
+    constructor(storage: Storage, keyPrefix: string | ((key: string) => string) = "") {
         this.storage = storage;
         this.buildKey = "function" === typeof keyPrefix
             ? keyPrefix
@@ -38,7 +38,7 @@ export class FlexibleStorage {
             return validator() as T;
         }
 
-        const { value } = JSON.parse(this.storage.getItem(this.buildKey(key)));
+        const {value} = JSON.parse(this.storage.getItem(this.buildKey(key)));
 
         return validator(value) as T;
     };
