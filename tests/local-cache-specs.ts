@@ -1,13 +1,13 @@
 import { expect } from "chai";
-import { LocalCache } from "../src";
+import { FlexibleStorage } from "../src";
 import { Moment } from "moment";
 
 const MemoryStorage = require("memorystorage");
 
-describe("LocalCache", () => {
+describe("FlexibleStorage", () => {
     const storage: Storage = MemoryStorage("local-cache-test");
     const prefix = (key: string) => "<key>" + key + "</key>";
-    const cache: LocalCache = new LocalCache(storage, prefix);
+    const cache: FlexibleStorage = new FlexibleStorage(storage, prefix);
 
     const defaultCacheKey = "defaultCacheKey";
     const defaultStorageKey = prefix(defaultCacheKey);
@@ -17,7 +17,7 @@ describe("LocalCache", () => {
     });
 
     describe("default buildKey()", () => {
-        const cacheWithDefaultBuildKey = new LocalCache(storage, "prefix_");
+        const cacheWithDefaultBuildKey = new FlexibleStorage(storage, "prefix_");
         expect(cacheWithDefaultBuildKey.buildKey("key")).to.be.equal("prefix_key");
     });
 
