@@ -1,10 +1,14 @@
 # Local Cache
+[![Build Status](https://travis-ci.org/Horat1us/flexible-storage.svg?branch=master)](https://travis-ci.org/Horat1us/flexible-storage)
+[![codecov](https://codecov.io/gh/Horat1us/flexible-storage/branch/master/graph/badge.svg)(https://codecov.io/gh/Horat1us/flexible-storage)
+
 Module for front-end cache storage using LocalStorage (or any [another Storage](https://developer.mozilla.org/ru/docs/Web/API/Storage)).  
 Main features:
 - allows choose between localStorage and sessionStorage
 - define expiration date (using Moment or native Date instance)
 - define storage key prefix or filter
 - store any object as JSON
+- written on TypeScript and includes TypeScript definition files
 
 ## Installation
 Using NPM:
