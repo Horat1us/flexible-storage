@@ -1,0 +1,79 @@
+{
+  "name": "local-cache",
+  "version": "1.0.0",
+  "description": "Cache on frontend using LocalStorage",
+  "main": "src/index.ts",
+  "typings": "build/src/index.d.ts",
+  "scripts": {
+    "test": "cross-env TS_NODE_PROJECT=tsconfig.json ./node_modules/.bin/nyc mocha -r ts-node/register -r source-map-support/register tests/**-specs.ts",
+    "build": "cross-env NODE_ENV=production ./node_modules/.bin/webpack",
+    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "lint": "./node_modules/.bin/tslint --project .",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Horat1us/local-cache.git"
+  },
+  "keywords": [
+    "cache",
+    "local",
+    "storage",
+    "typescript",
+    "storage",
+    "localstorage",
+    "localcache"
+  ],
+  "author": "Alexander <horat1us> Letnikow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Horat1us/local-cache/issues"
+  },
+  "homepage": "https://github.com/Horat1us/local-cache#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.48",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^9.4.6",
+    "awesome-typescript-loader": "^3.4.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "clean-webpack-plugin": "^0.1.18",
+    "cross-env": "^5.1.3",
+    "memorystorage": "^0.11.0",
+    "mocha": "^5.0.1",
+    "nyc": "^11.4.1",
+    "pre-commit": "^1.2.2",
+    "source-map-loader": "^0.2.3",
+    "source-map-support": "^0.5.3",
+    "ts-node": "^5.0.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2",
+    "webpack": "^3.11.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "dependencies": {},
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "exclude:": [
+      "**/*.d.ts",
+      "webpack.config.js",
+      "codecept.conf.js",
+      "tests"
+    ],
+    "reporter": [
+      "clover",
+      "text-summary"
+    ],
+    "report-dir": "./tests/output"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
+}
