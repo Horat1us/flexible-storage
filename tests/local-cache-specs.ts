@@ -84,7 +84,7 @@ describe("FlexibleStorage", () => {
 
             cache.push(defaultCacheKey, value);
 
-            const cachedValue = JSON.parse(storage.getItem(defaultStorageKey));
+            const cachedValue = JSON.parse(storage.getItem(defaultStorageKey) as string);
             expect(cachedValue).to.have.property("value");
             expect(cachedValue).to.have.property("expires");
 
@@ -98,7 +98,7 @@ describe("FlexibleStorage", () => {
 
             cache.push(defaultCacheKey, undefined, expires);
 
-            const cachedValue = JSON.parse(storage.getItem(defaultStorageKey));
+            const cachedValue = JSON.parse(storage.getItem(defaultStorageKey) as string);
             expect(cachedValue).to.have.property("expires");
             expect(cachedValue.expires).to.be.equal(expires.valueOf());
         });
@@ -116,7 +116,7 @@ describe("FlexibleStorage", () => {
 
             cache.push(defaultCacheKey, undefined, expires as Moment);
 
-            const cachedValue = JSON.parse(storage.getItem(defaultStorageKey));
+            const cachedValue = JSON.parse(storage.getItem(defaultStorageKey) as string);
             expect(cachedValue).to.have.property("expires");
             expect(cachedValue.expires).to.be.equal(date.valueOf());
         })
