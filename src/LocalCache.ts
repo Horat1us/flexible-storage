@@ -38,8 +38,7 @@ export class FlexibleStorage {
             return validator() as T;
         }
 
-        let value = this.storage.getItem(this.buildKey(key));
-        value && (value = JSON.parse(value));
+        const { value } = JSON.parse(this.storage.getItem(this.buildKey(key)) as string);
 
         return validator(value) as T;
     };
