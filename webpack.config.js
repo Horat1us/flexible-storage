@@ -41,18 +41,7 @@ const config = {
             {
                 test: /\.tsx?$/,
                 loaders: [
-                    {
-                        loader: "babel-loader",
-                        query: {
-                            presets: [
-                                ['env', {
-                                    "targets": {
-                                        "browsers": ["last 2 versions", "safari >= 10", "ie >= 11"]
-                                    }
-                                }]
-                            ]
-                        }
-                    },
+                    "babel-loader",
                     "awesome-typescript-loader"
                 ]
             },
@@ -62,15 +51,6 @@ const config = {
                     [/node_modules/],
                 loader:
                     "babel-loader",
-                query: {
-                    presets: [
-                        ['env', {
-                            "targets": {
-                                "browsers": ["last 2 versions", "safari >= 10", "ie >= 11"]
-                            }
-                        }]
-                    ]
-                }
             },
             {
                 enforce: "pre",
